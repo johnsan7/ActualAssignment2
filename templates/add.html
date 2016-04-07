@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<title>Add contacts</title>
+</head>
+<body>
+	<form action="/add" method="post">
+		<input type="hidden" name="action" value="add_contact">
+		<fieldset>
+			<legend>First Name</legend>
+			<input type="text" name="fname"><br><br>
+			<legend>Last Name</legend>
+			<input type="text" name="lname"><br><br>
+			<legend>Email address</legend>
+			<input type="email" name="email"><br><br>
+
+			<legend>Marriage Status</legend>
+			<select name"married">
+				<option value="single">Single</option>
+				<option value="married">Married</option>
+				<option value="divorced">Divorced</option>
+				<option value="widow">Widow</option>
+			</select><br><br>
+			<legend>Who's Friend?</legend><br>
+			<input type="checkbox" name="whofriend" value="myfriend">My friend<br>
+			<input type="checkbox" name="whofriend" value="spousefriend">Spouses friend<br>
+			<input type="checkbox" name="whofriend" value="workfriend">Business Aquaintance<br>
+			<br>
+			<legend>Number of Children<legend>
+			<input type="radio" name="numchild" value="0"> 0<br>
+			<input type="radio" name="numchild" value="1"> 1<br>
+			<input type="radio" name="numchild" value="2"> 2<br>
+			<input type="radio" name="numchild" value="3"> 3<br>
+			<input type="radio" name="numchild" value="4"> 4<br>
+			<input type="radio" name="numchild" value="110"> More than 4<br>			
+
+			</fieldset>
+		<fieldset>
+			<legend>Add Contact</legend>
+			<input type="submit" value="Add">
+		</fieldset>
+	</form>
+	{% if message %}
+	<section>
+		<h3>Result<h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+</body>
+</html>
