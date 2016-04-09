@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<title>Edit contact</title>
+</head>
+<body>
+	<form action="/edit" method="post">
+		<input type="hidden" name="action" value="edit_contact">
+		<input type="hidden" name="editkey" value= {{ cur_con_data[0].key }} > 
+		<fieldset>
+			<legend>First Name</legend>
+			<input type="text" name="fname" value= {{ cur_con_data[0].firstname }} ><br><br>
+			<legend>Last Name</legend>
+			<input type="text" name="lname" value= {{ cur_con_data[0].lastname }} ><br><br>
+			<legend>Email address</legend>
+			<input type="email" name="email" value= {{ cur_con_data[0].email }} ><br><br>
+			
+			<legend>Age</legend>
+			<input type="number" name="age" value= {{ cur_con_data[0].age }} ><br><br>
+			
+
+
+			<legend>Marriage Status</legend>
+			<select name="married">
+				<option value="single" {% if cur_con_data[0].marriagestatus=="single" %} selected="selected" {% endif %} >Single</option>
+				<option value="married" {% if cur_con_data[0].marriagestatus=="married" %} selected="selected" {% endif %} >Married</option>
+				<option value="divorced" {% if cur_con_data[0].marriagestatus=="divorced" %} selected="selected" {% endif %} >Divorced</option>
+				<option value="widow" {% if cur_con_data[0].marriagestatus=="widow" %} selected="selected" {% endif %} >Widow</option>
+			</select><br><br>
+			<legend>My friend?</legend><br>
+			<input type="checkbox" name="whofriend" value="myfriend" {% if cur_con_data[0].myfriend=="myfriend" %} checked {% endif %} >My friend<br>
+			<br>
+			<legend>Number of Children<legend>
+			<input type="radio" name="numchild" value=0 {% if cur_con_data[0].numberchildren==0 %} checked {% endif %} > 0<br>
+			<input type="radio" name="numchild" value=1 {% if cur_con_data[0].numberchildren==1 %} checked {% endif %} > 1<br>
+			<input type="radio" name="numchild" value=2 {% if cur_con_data[0].numberchildren==2 %} checked {% endif %} > 2<br>
+			<input type="radio" name="numchild" value=3 {% if cur_con_data[0].numberchildren==3 %} checked {% endif %} > 3<br>
+			<input type="radio" name="numchild" value=4 {% if cur_con_data[0].numberchildren==4 %} checked {% endif %} > 4<br>
+			<input type="radio" name="numchild" value=110 {% if cur_con_data[0].numberchildren==110 %} checked {% endif %} > More than 4<br>			
+
+			</fieldset>
+		<fieldset>
+			<legend>Add Contact</legend>
+			<input type="submit" value="Add">
+		</fieldset>
+	</form>
+	
+		
+	{% if error_code %}
+	
+	{% for error in error_code %}
+	<h2> {{ error.error }} </h2>
+	{% endfor %}
+	
+	{% endif %}
+	
+	
+	<td> <a href='/' >Back</a> </td>
+</body>
+</html>
+

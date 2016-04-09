@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<title>View contact</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email Address</th>
+			<th>Marriange Status</th>
+			<th>Number of Children</th>
+			<th>My Friend</th>
+			<th>Age</th>
+		</tr>
+		<tr>
+			<td> {{ cur_con_data[0].firstname }} </td>
+			<td> {{ cur_con_data[0].lastname }} </td>				
+			<td> {{ cur_con_data[0].email }} </td>
+			<td> {{ cur_con_data[0].marriagestatus }} </td>
+			<td> {{ cur_con_data[0].numberchildren }} </td>
+			<td> {{ cur_con_data[0].myfriend }} </td>			
+			<td> {{ cur_con_data[0].age }} </td>						
+		</tr>
+	</table>
+	<td> <a href='/' >Back</a> </td>
+</body>
+</html>
+
